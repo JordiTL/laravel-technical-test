@@ -23,4 +23,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the wished product list.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     *
+     */
+    public function wishes()
+    {
+        return $this->belongsToMany('App\Product', 'wishes')->withTimestamps();
+    }
+
+    /**
+     * Wish a specified product for this user.
+     *
+     * @param Product $product Product to be wished
+     */
+    public function wish(Product $product)
+    {
+        $this->wishes()->attach($product);
+    }
 }
