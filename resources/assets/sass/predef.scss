@@ -1,0 +1,34 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+//----------------------------------------------------------------------------------------------------------------------
+// Color Palette
+//----------------------------------------------------------------------------------------------------------------------
+
+$primary-color-1: #424243;
+$primary-color-2: #e16565;
+$primary-color-3: #6ad4ff;
+
+$secondary-color-1: #ebebeb;
+$secondary-color-2: #666666;
+
+$auxiliary-color-1: #000000;
+$auxiliary-color-2: #ffffff;
+
+// Palette aliases
+$custom-dark-gray: $primary-color-1;
+$custom-pink: $primary-color-2;
+$custom-light-blue: $primary-color-3;
+
+$custom-light-gray: $secondary-color-1;
+$custom-gray: $secondary-color-2;
+
+$black: $auxiliary-color-1;
+$white: $auxiliary-color-2;
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixins
+//----------------------------------------------------------------------------------------------------------------------
+
+@mixin block-underline($color){
+  border-bottom: 1px solid $color;
+}
