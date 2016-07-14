@@ -4,6 +4,10 @@
 Homestead.yaml
 Homestead.json
 .env
+/public/build
+/public/images
+/public/css
+/public/js
 ### Node template
 # Logs
 logs
