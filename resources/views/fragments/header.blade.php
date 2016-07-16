@@ -22,6 +22,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/home') }}">Home</a></li>
+                <li><a href="{{ url('/wishlist') }}">My Wishlist</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

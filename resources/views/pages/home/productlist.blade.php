@@ -9,20 +9,24 @@
                 <h3 class="subsection-title">The most expensive products</h3>
             </div>
             <div>
-                @for ($i = 0; $i < 10; $i++)
+                @foreach ($expensiveProducts as $product)
                     <div class="col-md-15 card">
                         <div class="card-inner">
-                            <div class="card-overlay">
-                                <a class="btn btn-card"><img class="btn-img" src="{{ elixir('images/icon-wish.svg') }}"></a>
+                            <div class="card-overlay
+                            @if ($product->isWished())
+                                selected
+                            @endif
+                            ">
+                                <a href="{{ url('product/'.$product->id.'/togglewish') }}" class="btn btn-card"><img class="btn-img" src="{{ elixir('images/icon-wish.svg') }}"></a>
                             </div>
-                            <img src="{{ elixir('images/slide-office.jpg') }}">
+                            <img src="{{ $product->image }}">
                         </div>
                         <div class="card-details">
-                            <h4>This is a title</h4>
-                            <p><span class="price">48$</span></p>
+                            <h4>{{ $product->name }}</h4>
+                            <p><span class="price">€ {{ $product->price }}</span></p>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
         <div class="col-product col-md-12">
@@ -30,20 +34,24 @@
                 <h3 class="subsection-title">The cheapest products</h3>
             </div>
             <div>
-                @for ($i = 0; $i < 10; $i++)
+                @foreach ($cheapProducts as $product)
                     <div class="col-md-15 card">
                         <div class="card-inner">
-                            <div class="card-overlay">
-                                <a class="btn btn-card"><img class="btn-img" src="{{ elixir('images/icon-wish.svg') }}"></a>
+                            <div class="card-overlay
+                            @if ($product->isWished())
+                                    selected
+                                @endif
+                                    ">
+                                <a href="{{ url('product/'.$product->id.'/togglewish') }}" class="btn btn-card"><img class="btn-img" src="{{ elixir('images/icon-wish.svg') }}"></a>
                             </div>
-                            <img src="{{ elixir('images/slide-office.jpg') }}">
+                            <img src="{{ $product->image }}">
                         </div>
                         <div class="card-details">
-                            <h4>This is a title</h4>
-                            <p><span class="price">48$</span></p>
+                            <h4>{{ $product->name }}</h4>
+                            <p><span class="price">€ {{ $product->price }}</span></p>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
