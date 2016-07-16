@@ -28,11 +28,43 @@ class Product extends Model
     }
 
     /**
-     * Let the user logged in wish this product.
+     * Retrieves a collection of the cheapest products.
+     *
+     * @param integer $size collection size
      */
-    public function wish()
+    public static function findCheapProducts($size = 10)
     {
-        $this->wishes()->attach(Auth::id());
+        return Product::orderBy('price', 'ASC')->limit($size)->offset(0)->get();
+    }
+
+    /**
+     * Retrieves a collection of the most expensive products.
+     *
+     * @param integer $size collection size
+     */
+    public static function findExpensiveProducts($size = 10)
+    {
+        return Product::orderBy('price', 'DESC')->limit($size)->offset(0)->get();
+    }
+
+    /**
+     * Let the user logged in toggle wish status.
+     */
+    public function toggleWish()
+    {
+        if ($this->isWished()) {
+            return $this->unwish();
+        }
+
+        return $this->wish();
+    }
+
+    /**
+     * Let the user logged in unwish this product.
+     */
+    public function isWished()
+    {
+        return !!$this->wishes()->where('user_id', Auth::id())->count();
     }
 
     /**
@@ -44,5 +76,21 @@ class Product extends Model
     public function wishes()
     {
         return $this->belongsToMany('App\User', 'wishes');
+    }
+
+    /**
+     * Let the user logged in unwish this product.
+     */
+    public function unwish()
+    {
+        $this->wishes()->detach(Auth::id());
+    }
+
+    /**
+     * Let the user logged in wish this product.
+     */
+    public function wish()
+    {
+        $this->wishes()->attach(Auth::id());
     }
 }
