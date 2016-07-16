@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateProductsTable extends Migration
 {
@@ -14,10 +14,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('price');
-            $table->string('image');
+            $table->string('name')->unique();
+            $table->text('description');
+            $table->float('price');
+            $table->text('image');
             $table->timestamps();
         });
     }
