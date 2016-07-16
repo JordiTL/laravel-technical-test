@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages/home/main');
-});
+
+Route::get('/', 'IndexController@index');
+Route::get('/home', array('as' => 'home', 'uses' => 'ProductListController@index'));
+Route::get('/wishlist', 'WishListController@index');
+
+Route::get('/product/{product}/wish', 'ProductController@wish');
+Route::get('/product/{product}/unwish', 'ProductController@unwish');
+Route::get('/product/{product}/togglewish', 'ProductController@togglewish');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+

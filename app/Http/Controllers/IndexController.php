@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
-class HomeController extends Controller
+class IndexController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,12 +19,12 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Redirect to home.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('home');
+        return Redirect::route('home');
     }
 }
