@@ -34,8 +34,6 @@ Dalai Lama
 
 
 ## Bootstrapping
-
-### Homestead
 First of all, be sure you have a local copy of the repository in your filesystem.
 
 You can achieve that typing:
@@ -45,16 +43,14 @@ $ git clone https://github.com/JordiTL/laravel-technical-test.git
 $ cd laravel-technical-test
 ```
 
-Then you have to create your local Homestead configuration file:
+### Homestead
+
+Then you have to create your local Homestead configuration file or using it globally (see website):
 
 #### Linux
 ```Shell
+$ composer install
 $ php vendor/bin/homestead make
-```
-
-#### Windows
-```Shell
-$ vendor\bin\homestead make
 ```
 
 Now you need to run the virtual machine via Vagrant:
