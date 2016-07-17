@@ -14,7 +14,9 @@
 
 Route::get('/', 'IndexController@index');
 Route::get('/home', array('as' => 'home', 'uses' => 'ProductListController@index'));
-Route::get('/wishlist', 'WishListController@index');
+Route::get('/wishlist', array('as' => 'wishlist', 'uses' => 'WishListController@index'));
+Route::get('/profile', array('as' => 'profile', 'uses' => 'ProfileController@index'));
+Route::put('/user/{id}', array('as' => 'user.update', 'uses' => 'UserController@update'));
 
 Route::get('/product/{product}/wish', 'ProductController@wish');
 Route::get('/product/{product}/unwish', 'ProductController@unwish');
