@@ -21,7 +21,7 @@ Dalai Lama
     - <a href="#homestead">Homestead</a>
     - <a href="#composer">Composer</a>
     - <a href="#migrations">Migrations</a>
-    - <a href="#gulp">Gulp</a>
+    - <a href="#npm-gulp">Npm-Gulp</a>
     - <a href="#cron">Cron</a>
 - <a href="#usage">Usage</a>
 	- <a href="#scraper">Scraper</a>
@@ -126,10 +126,11 @@ $ php artisan db:seed
 - **email**: user@test.com
 - **password**: password
 
-### Gulp
+### Npm-Gulp
 
-The last step is to run Gulp to generate the public resources:
+The last step is to run Npm and Gulp to generate the public resources:
 ```Shell
+$ npm install
 $ gulp
 ```
 
