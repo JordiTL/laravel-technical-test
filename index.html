@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Laravel-technical-test by JordiTL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Laravel-technical-test</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/JordiTL/laravel-technical-test" class="btn">View on GitHub</a>
+      <a href="https://github.com/JordiTL/laravel-technical-test/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/JordiTL/laravel-technical-test/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="laravel-technical-test" class="anchor" href="#laravel-technical-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Laravel technical test</h1>
+
+<p><a href="https://travis-ci.org/JordiTL/laravel-technical-test"><img src="https://travis-ci.org/JordiTL/laravel-technical-test.svg" alt="Build Status"></a></p>
+
+<p>This project is only a technical test to show some basic skills using Laravel PHP framework.</p>
+
+<p>But... your pull requests are always welcome!!!. Knowledge needs to be shared.</p>
+
+<pre><code>In the long history of humankind (and animal kind too)
+those who learned to collaborate
+and improvise most effectively have prevailed.
+
+Charles Darwin
+</code></pre>
+
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ul>
+<li>
+<a href="#bootstrapping">Bootstrapping</a>
+
+<ul>
+<li><a href="#homestead">Homestead</a></li>
+<li><a href="#composer">Composer</a></li>
+<li><a href="#migrations">Migrations</a></li>
+<li><a href="#gulp">Gulp</a></li>
+<li><a href="#cron">Cron [Optional]</a></li>
+</ul>
+</li>
+<li>
+<a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#scraper">Scraper</a></li>
+</ul>
+</li>
+<li><a href="#future-work">Future work</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li>
+<a href="#license">License</a>
+
+<ul>
+<li><a href="#mit">MIT</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="bootstrapping" class="anchor" href="#bootstrapping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bootstrapping</h2>
+
+<h3>
+<a id="homestead" class="anchor" href="#homestead" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Homestead</h3>
+
+<p>First of all, be sure you have a local copy of the repository in your filesystem.</p>
+
+<p>You can achieve that typing:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/JordiTL/laravel-technical-test.git
+$ <span class="pl-c1">cd</span> laravel-technical-test</pre></div>
+
+<p>Then you have to create your local Homestead configuration file:</p>
+
+<h4>
+<a id="linux" class="anchor" href="#linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Linux</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ php vendor/bin/homestead make</pre></div>
+
+<h4>
+<a id="windows" class="anchor" href="#windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows</h4>
+
+<div class="highlight highlight-source-shell"><pre>$ vendor<span class="pl-cce">\b</span>in<span class="pl-cce">\h</span>omestead make</pre></div>
+
+<p>Now you need to run the virtual machine via Vagrant:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ vagrant up</pre></div>
+
+<p>[Optional] Add your custom mapping to your hosts file</p>
+
+<p>You can add it manually by appending the following lines to your <code>/etc/hosts</code> file:</p>
+
+<pre><code>#The following line is added automatically to map Homestead host
+[homestead-ip] homestead.app
+</code></pre>
+
+<p>Or adding it automatically running:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">printf</span> <span class="pl-s"><span class="pl-pds">"</span>\n#The following line is added automatically to map Homestead host\n<span class="pl-s"><span class="pl-pds">`</span>grep -Po <span class="pl-s"><span class="pl-pds">'</span>(?&lt;=ip: ").*(?=")<span class="pl-pds">'</span></span> Homestead.yaml<span class="pl-pds">`</span></span> homestead.app\n<span class="pl-pds">"</span></span> <span class="pl-k">|</span> sudo tee --append /etc/hosts</pre></div>
+
+<h3>
+<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Composer</h3>
+
+<p>Now you have to connect via ssh to your Homestead instance:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ vagrant ssh</pre></div>
+
+<p>And run inside it:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> [project-folder]
+$ composer install</pre></div>
+
+<p>For example:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">cd</span> /home/vagrant/Work/Laravel/laravel-technical-test/
+$ composer install</pre></div>
+
+<h3>
+<a id="migrations" class="anchor" href="#migrations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Migrations</h3>
+
+<p>We need to generate the database schema before we can use the app. But before that we need to generate an environment file:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ cp .env.example .env
+$ php artisan key:generate</pre></div>
+
+<p>Then we need to create the database an users (feel free to change this settings in your production environment):</p>
+
+<div class="highlight highlight-source-shell"><pre>$ mysql -uhomestead -psecret
+
+mysql<span class="pl-k">&gt;</span> CREATE DATABASE laraveltest<span class="pl-k">;</span>
+mysql<span class="pl-k">&gt;</span> GRANT ALL PRIVILEGES ON laraveltest.<span class="pl-k">*</span> TO <span class="pl-s"><span class="pl-pds">'</span>laraveluser<span class="pl-pds">'</span></span>@<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span> IDENTIFIED BY <span class="pl-s"><span class="pl-pds">'</span>laravelpass<span class="pl-pds">'</span></span><span class="pl-k">;</span>
+mysql<span class="pl-k">&gt;</span> quit<span class="pl-k">;</span></pre></div>
+
+<p>And then in project folder (inside homestead) run:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ php artisan migrate</pre></div>
+
+<p>If you want a default usertry:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ php artisan db:seed</pre></div>
+
+<ul>
+<li>
+<strong>email</strong>: <a href="mailto:user@test.com">user@test.com</a>
+</li>
+<li>
+<strong>password</strong>: password</li>
+</ul>
+
+<h3>
+<a id="gulp" class="anchor" href="#gulp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gulp</h3>
+
+<p>The last step is to run Gulp to generate the public resources:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ gulp</pre></div>
+
+<p>And... you are done to test the app!</p>
+
+<h3>
+<a id="cron-optional" class="anchor" href="#cron-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cron [Optional]</h3>
+
+<p>The application has a built-in web scraper. It is configured to scrap the web hourly with the Laravel Scheduler.
+The bad news are that Laravel Scheduler will only work if you add a cron to your system:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ crontab -e</pre></div>
+
+<p>And add the following line:</p>
+
+<pre lang="cron"><code>* * * * * php [artisan-executable] schedule:run 1&gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<p>For example:</p>
+
+<pre lang="cron"><code>* * * * * php /home/vagrant/Work/Laravel/laravel-technical-test/artisan schedule:run 1&gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>This comes with a built-in commands. In the following sections you will see some of them.</p>
+
+<h3>
+<a id="scraper" class="anchor" href="#scraper" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scraper</h3>
+
+<h4>
+<a id="retrieval" class="anchor" href="#retrieval" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Retrieval</h4>
+
+<p>This command will connect to <a href="http://www.appliancesdelivered.ie">http://www.appliancesdelivered.ie</a>, download and store a collection of the ten cheapest products and the ten most expensive ones.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ php artisan scraper:retrieval</pre></div>
+
+<p>You can check all available commands by running:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ php artisan</pre></div>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
+
+<ul>
+<li>Jorge Torregrosa Lloret ( <a href="mailto:jtorregrosalloret@gmail.com">jtorregrosalloret@gmail.com</a> )
+
+<ul>
+<li><a href="https://es.linkedin.com/in/jtorregrosalloret">LinkedIn</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="future-work" class="anchor" href="#future-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Future work</h2>
+
+<p>Like all software projects, there is always a way to improve them. This is not an exception. The following lines will enumerate a few cool future features:</p>
+
+<ul>
+<li>Redis | Memcached | Hazelcast datagrid integration.</li>
+<li>Front-end improvements.</li>
+<li>Advanced scraping + crawling functionality.</li>
+<li>Advanced customization scraper options.</li>
+<li>Separate scraper to a custom project.</li>
+<li>Stripe payment API integration.</li>
+<li>E2E testing with PhantomJS</li>
+<li>...</li>
+</ul>
+
+<p>And maybe some crazy stuff:</p>
+
+<ul>
+<li>Realtime owner-customer chat</li>
+<li>Telegram (messaging app) sync with the chat</li>
+<li>Administrator capabilities to control <a href="https://en.wikipedia.org/wiki/Juno_(spacecraft)">Juno</a>
+</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<h3>
+<a id="mit" class="anchor" href="#mit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MIT</h3>
+
+<pre><code>The MIT License (MIT)
+
+Copyright (c) 2016 Jorge Torregrosa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/JordiTL/laravel-technical-test">Laravel-technical-test</a> is maintained by <a href="https://github.com/JordiTL">JordiTL</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
