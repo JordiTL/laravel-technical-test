@@ -1,11 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.limited')
 
 @section('content')
-<div class="container">
+<section class="container-fluid login-container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <img src="{{ elixir('images/logo.svg') }}">
+                        <span class="brand" href="{{ url('/') }}">BalsamiqBag</span>
+                    </div>
+
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -54,7 +60,13 @@
                                     <i class="fa fa-btn fa-sign-in"></i> Login
                                 </button>
 
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ url('/register') }}">Do you want an account?</a>
                             </div>
                         </div>
                     </form>
@@ -62,5 +74,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

@@ -1,0 +1,42 @@
+
+
+section.login-container{
+  background: url('images/shopping_bg.jpg') no-repeat center center fixed;
+  background-size:cover;
+  height:100%;
+  margin:0;
+
+  span.brand{
+      font-family: 'Raleway', sans-serif;
+  }
+  .panel-default{
+    border-radius: 0;
+    border:none;
+    background-color: rgba(255,255,255,0.5);
+    padding: 20px;
+  margin-top:50px;
+  }
+
+  .logo-container{
+    text-align: center;
+    .logo-icon{
+      display:inline-block;
+      width:130px;
+      height:130px;
+      border-radius:100%;
+      vertical-align: middle;
+      text-align: center;
+      position:relative;
+      margin: 20px;
+    }
+    img{
+      width: 100px;
+      height: 100px;
+      margin:auto;
+    }
+  }
+}
+
+.footer{
+  background-color: transparent;
+}

@@ -18,7 +18,7 @@
 
     {!! Form::model($user, [ 'route' => array('user.update', $user->id), 'method' => 'PUT', 'class'=>'form-horizontal', 'id' => 'userform', 'data-toggle'=>'validator', 'role'=>'form']) !!}
 
-    <legend>User data</legend>
+    <legend>User profile</legend>
 
     <div class="form-group">
         {!! Form::label('name', 'Name', array('class' => 'col-md-4 control-label')) !!}

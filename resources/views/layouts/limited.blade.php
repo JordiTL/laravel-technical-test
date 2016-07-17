@@ -4,13 +4,8 @@
     @include('fragments/head')
 </head>
 <body>
-        <div class="header-container">
-            @include('fragments/header')
-        </div>
-
         <div class="container-fluid content-container">
             @yield('content')
-            @include('fragments/footer')
         </div>
 
 

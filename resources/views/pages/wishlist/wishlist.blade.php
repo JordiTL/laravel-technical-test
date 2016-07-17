@@ -1,4 +1,5 @@
 <section class="col-md-12 wishlist">
+
     <div class="title-container">
         <h2 class="section-title"> My Wishlist</h2>
     </div>
